@@ -23,7 +23,7 @@ public class Exercicio15_16_17_18 {
         System.out.println("Você ja fez ou fará " +idade+ " anos.");
 
         if (dia > 0 && dia <= 31 && mes > 0 && mes <= 12) {
-            System.out.println("Data válida: " + dia + "/" + mes);
+            System.out.println("Data : " + dia + "/" + mes);
         } else {
             System.out.println("Data inválida.");
         }
