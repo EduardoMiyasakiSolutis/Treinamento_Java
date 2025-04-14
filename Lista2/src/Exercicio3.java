@@ -1,22 +1,24 @@
 import java.util.Scanner;
 
-public class Exercicio2 {
+public class Exercicio3 {
 
     public static void main(String[] args) {
-        //  Calcule e exiba a quantidade de salários mínimos
+       // Solicite a quantidade de homens e de mulheres de uma turma da faculdade.
+        // Em seguida calcule e exiba o percentual (separadamente) de homens e mulheres
+        // desta turma.
 
         Scanner teclado = new Scanner(System.in);
 
-        double quantidadeSalarioMinimos = 0;
+        System.out.print("Informe a quantidade de homens na sua sala: ");
+        float homens = teclado.nextInt();
 
-        System.out.print("Informe o valor do salário mínimo:");
-        double salarioMinimo = teclado.nextDouble();
+        System.out.print("Informe a quantidade de mulheres na sua sala: ");
+        float mulheres = teclado.nextInt();
 
-        System.out.print("Informe o seu salário:");
-        double salario = teclado.nextDouble();
+        float porcentagemHomens = (homens / (homens + mulheres)) * 100;
+        float porcentagemMulheres = (mulheres / (homens + mulheres)) * 100;
 
-        quantidadeSalarioMinimos = salario / salarioMinimo;
-
-        System.out.println("A quantidade de salários mínimo que você recebe é " + quantidadeSalarioMinimos);
+        System.out.println("Porcentagem de homens: " + porcentagemHomens  + "%");
+        System.out.println("Porcentagem de mulheres: " + porcentagemMulheres + "%");
     }
 }
