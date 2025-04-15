@@ -20,8 +20,6 @@ public class Exercicio60 {
         System.out.println("Informe a quantidade de anos: ");
         int anos = sc.nextInt();
 
-        int anosEmMeses =
-
         int contador = 0;
         while (contador != anos) {
             contador++;
