@@ -1,6 +1,6 @@
 package classes;
 
-public class AnimalMarinhoAB {
-    public void nadar(){}
+public class AnimalTerrestreAB extends AnimalAB{
 
+    int qtdPatas;
 }

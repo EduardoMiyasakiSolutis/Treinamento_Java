@@ -1,6 +1,10 @@
 package classes;
 
-public class AnimalTerrestreAB extends AnimalAB{
+public class AnimalVoadorAB extends AnimalAB{
 
-    int qtdPatas;
+    int qtdAsas;
+    double envergaduraAsas;
+
+    public void voar(){}
+
 }
