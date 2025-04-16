@@ -14,8 +14,8 @@ public class ExercicioSlide_116 {
         int qtdFamiliares = scNumeros.nextInt();
         for (int i = 1; i <= qtdFamiliares; i++) {
             System.out.println("Digite o nome do familiar: ");
-            String nomeFamiliare = scNomes.nextLine();
-            listaNomeFamiliares.add(nomeFamiliare);
+            String nomeFamiliar = scNomes.nextLine();
+            listaNomeFamiliares.add(nomeFamiliar);
         }
         System.out.println("Exibição lista formatada: ");
         listaNomeFamiliares.forEach(System.out::println);
