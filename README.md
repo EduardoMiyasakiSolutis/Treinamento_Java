@@ -5,8 +5,10 @@
 A partir da branch "lista2", todos os exercícios foram realizados em dupla,
 para melhor aprendizado e apoio mútuo. 📕💡
 
-![image](https://github.com/user-attachments/assets/d4eba14b-8302-4d19-8b85-7aa00b2ae789)
+![image](https://github.com/user-attachments/assets/d4eba14b-8302-4d19-8b85-7aa00b2ae789) 
+
 Integrantes: Eduardo Miyasaki & João Lázaro. 😃
 
 ![image](https://github.com/user-attachments/assets/be99467c-f354-4148-bab6-e415a10ec844)
+
 GitHub dos integrantes: (EduardoMiyasakiSolutis) & (JoaoLazaroSolutis).📃📎
