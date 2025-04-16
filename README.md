@@ -12,3 +12,10 @@ Integrantes: Eduardo Miyasaki & João Lázaro. 😃
 ![image](https://github.com/user-attachments/assets/be99467c-f354-4148-bab6-e415a10ec844)
 
 GitHub dos integrantes: (EduardoMiyasakiSolutis) & (JoaoLazaroSolutis).📃📎
+
+![image](https://github.com/user-attachments/assets/da8ec530-937b-434e-a938-383fbaaffedd) 
+
+Linkedin dos Integrantes: 
+Eduardo Miyasaki: linkedin.com/in/eduardo-miyasaki1/ 
+João Lázaro: João Lázaro
+
