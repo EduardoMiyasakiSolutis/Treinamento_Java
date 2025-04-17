@@ -10,13 +10,18 @@ public class ExercicioSlide_116 {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        List<String> nomesFamiliares = obterNomesFamiliares();
-        exibirNomesFormatados(nomesFamiliares);
+        List<String> listaNomeFamiliares = obterNomesFamiliares();
+        exibirNomesFormatados(listaNomeFamiliares);
     }
 
     private static int obterQuantidadeFamiliares() {
+
+        List<String> listaNomeFamiliares = obterNomesFamiliares();
+        Scanner scNumeros = new Scanner(System.in);
+        Scanner scNomes = new Scanner(System.in);
+
         System.out.println("Digite a quantidade de familiares que deseja declarar:");
-<<<<<<< HEAD
+
         int qtdFamiliares = scNumeros.nextInt();
         for (int i = 1; i <= qtdFamiliares; i++) {
             System.out.println("Digite o nome do familiar: ");
@@ -27,10 +32,9 @@ public class ExercicioSlide_116 {
         listaNomeFamiliares.forEach(System.out::println);
         System.out.println("Exibição em formato de lista: ");
         System.out.println(listaNomeFamiliares);
-=======
+
         return scanner.nextInt();
     }
->>>>>>> 2a7fdbd47920f400f298c2b1145298112178a61a
 
     private static List<String> obterNomesFamiliares() {
         int quantidadeFamiliares = obterQuantidadeFamiliares();
