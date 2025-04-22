@@ -2,7 +2,9 @@ package classes.funcionario;
 
 public class Gerente extends Funcionario {
 
-    private double COMISSAO = 1500.0;
+    public Gerente(){
+        this.comissao = 1500.0;
+    }
 
     @Override
     public double verificarRenda() {
@@ -15,7 +17,7 @@ public class Gerente extends Funcionario {
         if (graduacao) {
             renda += (renda * 1);
         }
-        renda += COMISSAO;
+        renda += comissao;
         return renda;
     }
 }

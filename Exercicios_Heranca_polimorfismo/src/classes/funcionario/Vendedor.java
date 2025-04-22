@@ -1,8 +1,10 @@
 package classes.funcionario;
 
-public class Vendedor extends Funcionario{
+public class Vendedor extends Funcionario {
 
-    private double COMISSAO = 250.0;
+    public Vendedor() {
+        this.comissao = 250;
+    }
 
     @Override
     public double verificarRenda() {
@@ -15,7 +17,7 @@ public class Vendedor extends Funcionario{
         if (graduacao) {
             renda += (renda * 1);
         }
-        renda += COMISSAO;
+        renda += comissao;
         return renda;
     }
 }

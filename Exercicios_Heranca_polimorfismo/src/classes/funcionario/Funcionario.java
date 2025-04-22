@@ -13,6 +13,7 @@ public class Funcionario {
   protected String universidade;
 
   protected double renda = 1000.0;
+  protected double comissao;
 
     public String getNome() {
         return nome;
@@ -78,9 +79,19 @@ public class Funcionario {
         this.renda = renda;
     }
 
+    public double getComissao() {
+        return comissao;
+    }
+
+    public void setComissao(double comissao) {
+        this.comissao = comissao;
+    }
+
     @Override
     public String toString() {
         return "nome -> " + nome + "\n" +
+                "Renda -> " + renda + "\n" +
+                "Comissão -> " + comissao + "\n" +
                 ", codigoFuncional -> " + codigoFuncional + "\n" +
                 ", ensinoBasico -> " + ensinoBasico + "\n" +
                 ", ensinoMedio -> " + ensinoMedio + "\n" +
@@ -99,7 +110,7 @@ public class Funcionario {
         if (graduacao) {
             renda += (renda * 1);
         }
-
-        return renda;
+        renda = renda + comissao;
+        return renda + comissao;
     }
 }
