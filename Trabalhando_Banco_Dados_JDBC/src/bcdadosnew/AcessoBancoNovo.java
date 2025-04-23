@@ -105,7 +105,9 @@ public class AcessoBancoNovo {
 
             prep.executeUpdate();
             System.out.println("Delete concluído!");
+
         } catch (SQLException e) {
+            System.out.println("a");
             System.out.println(e.getMessage());
         }
     }
