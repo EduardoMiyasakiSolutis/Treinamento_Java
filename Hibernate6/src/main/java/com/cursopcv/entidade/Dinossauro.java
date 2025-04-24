@@ -46,7 +46,7 @@ public class Dinossauro {
     }
 
     @Override
-    public String toString() {
+    public String   toString() {
         return "Dinossauro{" +
                 "codigo=" + codigo +
                 ", genero='" + genero + '\'' +
