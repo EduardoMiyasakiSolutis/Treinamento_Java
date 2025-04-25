@@ -6,8 +6,6 @@ import jakarta.persistence.*;
 @DiscriminatorValue("LIVRO_IMPRESSO")
 public class Impresso extends Livro {
 
-    private int idImpresso;
-
     private double frete;
     private int estoque;
 
@@ -17,14 +15,6 @@ public class Impresso extends Livro {
 
     public void atualizarEstoque() {
         this.estoque -= 1;
-    }
-
-    public int getIdImpresso() {
-        return idImpresso;
-    }
-
-    public void setIdImpresso(int idImpresso) {
-        this.idImpresso = idImpresso;
     }
 
     @Override

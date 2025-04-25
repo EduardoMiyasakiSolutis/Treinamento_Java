@@ -6,20 +6,10 @@ import jakarta.persistence.*;
 @DiscriminatorValue("LIVRO_ELETRONICO")
 public class Eletronico extends Livro {
 
-    private int idEletronico;
-
     private int tamanho;
 
     public Eletronico(){
         super();
-    }
-
-    public int getIdEletronico() {
-        return idEletronico;
-    }
-
-    public void setIdEletronico(int idEletronico) {
-        this.idEletronico = idEletronico;
     }
 
     public int getTamanho() {

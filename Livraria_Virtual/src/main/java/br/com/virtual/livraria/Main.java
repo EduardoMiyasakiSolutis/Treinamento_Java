@@ -30,6 +30,8 @@ public class Main {
                              3 - Listar Livros...
                              4 - Listar Vendas...
                              5 - Sair do Menu...
+                             
+                             Selecione um número: 
                 """;
 
         int opcao = 0;
@@ -46,22 +48,34 @@ public class Main {
                         Impresso imp = new Impresso();
 
                         System.out.println("Informe o nome do livro: ");
-                        imp.setTitulo(sc.next());
+                        imp.setTitulo(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe o nome do(a) Autor(a): ");
-                        imp.setAutores(sc.next());
+                        imp.setAutores(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe a editora: ");
-                        imp.setEditora(sc.next());
+                        imp.setEditora(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe o valor: ");
                         imp.setPreco(scNum.nextInt());
 
+                        sc.nextLine();
+
                         System.out.println("Informe o frete: ");
                         imp.setFrete(scNum.nextDouble());
 
+                        sc.nextLine();
+
                         System.out.println("Informe o estoque: ");
                         imp.setEstoque(scNum.nextInt());
+
+                        sc.nextLine();
 
                        impressoDAO.cadastraLivro(imp);
                     }
@@ -69,16 +83,24 @@ public class Main {
                         Eletronico ele = new Eletronico();
 
                         System.out.println("Informe o nome do livro: ");
-                        ele.setTitulo(sc.next());
+                        ele.setTitulo(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe o nome do(a) Autor(a): ");
-                        ele.setAutores(sc.next());
+                        ele.setAutores(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe a editora: ");
-                        ele.setEditora(sc.next());
+                        ele.setEditora(sc.nextLine());
+
+                        sc.nextLine();
 
                         System.out.println("Informe o valor: ");
                         ele.setPreco(scNum.nextInt());
+
+                        sc.nextLine();
 
                         System.out.println("Informe o tamanho em KB:");
                         ele.setTamanho(scNum.nextInt());
