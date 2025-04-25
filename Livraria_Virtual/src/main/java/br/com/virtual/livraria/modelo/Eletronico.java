@@ -6,23 +6,11 @@ import jakarta.persistence.*;
 @DiscriminatorValue("LIVRO_ELETRONICO")
 public class Eletronico extends Livro {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int idEletronico;
-
     private int tamanho;
 
     public Eletronico(){
         super();
     }
-
-//    public int getIdEletronico() {
-//        return idEletronico;
-//    }
-//
-//    public void setIdEletronico(int idEletronico) {
-//        this.idEletronico = idEletronico;
-//    }
 
     public int getTamanho() {
         return tamanho;
@@ -34,7 +22,10 @@ public class Eletronico extends Livro {
 
     @Override
     public String toString() {
-        return "Título: " + getTitulo() +
-                "tamanho: " + tamanho + "Kb";
+        return "Título: " + getTitulo() + "\n" +
+                "Autor: " + getAutores() + "\n" +
+                "Preço: R$" + getPreco() + "\n" +
+                "Tamanho em KB: " + getTamanho() + "\n";
+
     }
 }

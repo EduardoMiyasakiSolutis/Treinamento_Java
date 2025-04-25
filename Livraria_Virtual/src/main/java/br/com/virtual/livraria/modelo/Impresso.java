@@ -6,10 +6,6 @@ import jakarta.persistence.*;
 @DiscriminatorValue("LIVRO_IMPRESSO")
 public class Impresso extends Livro {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-//    private int idImpresso;
-
     private double frete;
     private int estoque;
 
@@ -23,21 +19,13 @@ public class Impresso extends Livro {
 
     @Override
     public String toString() {
-        return "Impresso: " +
-                "Título: " + getTitulo() +
-                "frete: " + frete +
-                ", estoque: " + estoque +
-                '}';
+        return "Título: " + getTitulo() + "\n" +
+                "Autor: " + getAutores() + "\n" +
+                "Editora: " + getEditora() + "\n" +
+                "Preço: R$" + getPreco() + "\n" +
+                "Frete: R$" + getFrete() + "\n" +
+                "Quantidade em estoque: " + getEstoque();
     }
-
-
-//    public int getIdImpresso() {
-//        return idImpresso;
-//    }
-//
-//    public void setIdImpresso(int idImpresso) {
-//        this.idImpresso = idImpresso;
-//    }
 
     public double getFrete() {
         return frete;

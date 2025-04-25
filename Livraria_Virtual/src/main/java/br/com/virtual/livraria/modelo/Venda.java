@@ -17,7 +17,13 @@ public class Venda {
     private String cliente;
     private double valor;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(
+            name = "venda_livro",
+            joinColumns = { @JoinColumn(name = "idVenda")},
+            inverseJoinColumns = { @JoinColumn(name = "id")}
+    )
+
     private List<Livro> livros = new ArrayList<Livro>();
 
     public void addLivro(Livro livro){
@@ -58,5 +64,9 @@ public class Venda {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public List<Livro> getLivros() {
+        return livros;
     }
 }
