@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/Treinamento_Java/Lista1/Lista1.iml" filepath="$PROJECT_DIR$/Treinamento_Java/Lista1/Lista1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Treinamento_Java/Lista2/Lista2.iml" filepath="$PROJECT_DIR$/Treinamento_Java/Lista2/Lista2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Treinamento_Java/Lista3/Lista3.iml" filepath="$PROJECT_DIR$/Treinamento_Java/Lista3/Lista3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Treinamento_Java.iml" filepath="$PROJECT_DIR$/.idea/Treinamento_Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Treinamento_Java/lista0-Eduardo/lista0-Eduardo.iml" filepath="$PROJECT_DIR$/Treinamento_Java/lista0-Eduardo/lista0-Eduardo.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/Lista1/Lista1.iml" filepath="$PROJECT_DIR$/Lista1/Lista1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lista2/Lista2.iml" filepath="$PROJECT_DIR$/Lista2/Lista2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lista3/Lista3.iml" filepath="$PROJECT_DIR$/Lista3/Lista3.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Treinamento_Java.iml" filepath="$PROJECT_DIR$/.idea/Treinamento_Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/lista0-Eduardo/lista0-Eduardo.iml" filepath="$PROJECT_DIR$/lista0-Eduardo/lista0-Eduardo.iml" />
+>>>>>>> 834d1c8de9ceaec3f457d13fcaedfe13861f9f83
     </modules>
   </component>
 </project>
