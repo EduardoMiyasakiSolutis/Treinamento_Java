@@ -34,13 +34,6 @@ public class Venda {
             livros.add(livro);
     }
 
-    public void listarLivros() {
-            livros.forEach(livro -> System.out.println(livro));
-    }
-
-    public int getNumVendas() {
-        return numVendas;
-    }
 
     public void setNumVendas(int numVendas) {
         this.numVendas = numVendas;

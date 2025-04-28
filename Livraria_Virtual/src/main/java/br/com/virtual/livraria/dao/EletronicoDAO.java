@@ -1,7 +1,6 @@
 package br.com.virtual.livraria.dao;
 
 import br.com.virtual.livraria.modelo.Eletronico;
-import br.com.virtual.livraria.modelo.Impresso;
 import br.com.virtual.livraria.modelo.Livro;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

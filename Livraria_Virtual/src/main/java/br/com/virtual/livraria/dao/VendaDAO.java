@@ -1,6 +1,5 @@
 package br.com.virtual.livraria.dao;
 
-import br.com.virtual.livraria.modelo.Livro;
 import br.com.virtual.livraria.modelo.Venda;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -26,14 +25,12 @@ public class VendaDAO {
     }
 
     public long selecionarUltimaVenda() {
-//        em.getTransaction().begin();
         Query consulta = em.createQuery("SELECT COUNT(v.idVenda) from Venda v");
         var resultado = consulta.getResultList();
         return (long) resultado.get(0);
     }
 
     public List<Venda> listarTodasVendas() {
-//        em.getTransaction().begin();
         Query consulta = em.createQuery("SELECT v FROM Venda v");
         return consulta.getResultList();
     }

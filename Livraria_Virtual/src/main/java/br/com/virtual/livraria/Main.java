@@ -16,6 +16,7 @@ public class Main {
 
     static Scanner sc = new Scanner(System.in);
     static Scanner scNum = new Scanner(System.in);
+
     static EletronicoDAO eletronicoDAO = new EletronicoDAO();
     static ImpressoDAO impressoDAO = new ImpressoDAO();
     static VendaDAO vendaDAO = new VendaDAO();
@@ -70,37 +71,34 @@ public class Main {
     public static void cadastrarLivros() {
 
         System.out.println("\n <---------- Bem-Vindo ao cadastro de livros ---------->");
-        System.out.println(" \n Informe o tipo de livro que será cadastrado: 1 para Impresso, 2 para Eletrônico ou 3 ambos ");
+        System.out.println(" \n Informe o tipo de livro que será cadastrado: \n" +
+                " 1 - para Impresso... \n" +
+                " 2 - para Eletrônico... \n" +
+                " 3 - ambos... ");
         int num = scNum.nextInt();
 
         if (num == 1) {
             Impresso imp = new Impresso();
 
-            System.out.println("Informe o nome do livro: ");
-            String titulo = sc.next();
-            imp.setTitulo(titulo);
+            System.out.println("Informe o título do livro: ");
+            imp.setTitulo(sc.nextLine());
 
             sc.nextLine();
 
             System.out.println("Informe o nome do(a) Autor(a): ");
-            String autores = sc.nextLine();
-            imp.setAutores(autores);
+            imp.setAutores(sc.nextLine());
 
             System.out.println("Informe a editora: ");
-            String editora = sc.nextLine();
-            imp.setEditora(editora);
+            imp.setEditora(sc.nextLine());
 
-            System.out.println("Informe o valor: ");
-            double preco = scNum.nextDouble();
-            imp.setPreco(preco);
+            System.out.println("Informe o valor (R$): ");
+            imp.setPreco(scNum.nextDouble());
 
-            System.out.println("Informe o frete: ");
-            double frete = scNum.nextDouble();
-            imp.setFrete(frete);
+            System.out.println("Informe o frete (R$): ");
+            imp.setFrete(scNum.nextDouble());
 
-            System.out.println("Informe o estoque: ");
-            int estoque = scNum.nextInt();
-            imp.setEstoque(estoque);
+            System.out.println("Informe o estoque (Número inteiro): ");
+            imp.setEstoque(scNum.nextInt());
 
             impressoDAO.cadastraLivro(imp);
         } else if (num == 2) {
@@ -109,17 +107,14 @@ public class Main {
             System.out.println("Informe o nome do livro: ");
             ele.setTitulo(sc.nextLine());
 
-
             System.out.println("Informe o nome do(a) Autor(a): ");
             ele.setAutores(sc.nextLine());
-
 
             System.out.println("Informe a editora: ");
             ele.setEditora(sc.nextLine());
 
-            System.out.println("Informe o valor: ");
+            System.out.println("Informe o valor (R$): ");
             ele.setPreco(scNum.nextInt());
-
 
             System.out.println("Informe o tamanho em KB:");
             ele.setTamanho(scNum.nextInt());
@@ -142,11 +137,11 @@ public class Main {
             String editora = sc.nextLine();
             imp.setEditora(editora);
 
-            System.out.println("Informe o valor: ");
+            System.out.println("Informe o valor (R$): ");
             double preco = scNum.nextDouble();
             imp.setPreco(preco);
 
-            System.out.println("Informe o frete: ");
+            System.out.println("Informe o frete (R$): ");
             double frete = scNum.nextDouble();
             imp.setFrete(frete);
 
@@ -182,14 +177,11 @@ public class Main {
         venda.setNumero((int) (Math.random() * (max - min) + min));
 
         System.out.println("Informe seu nome: ");
-        String nomeCliente = sc.nextLine();
-        venda.setCliente(nomeCliente);
+        venda.setCliente(sc.nextLine());
 
-        int ultimoID = selecionarUltimaVenda();
-        System.out.println(ultimoID);
         venda.setNumVendas(selecionarUltimaVenda() + 1);
 
-        System.out.println("Informe a quantidade de livro que deseja comprar: ");
+        System.out.println("Informe a quantidade de livro que deseja comprar (Número inteiro): ");
         int qtdLivros = sc.nextInt();
 
         for (int i = 1; i <= qtdLivros; i++) {
@@ -223,7 +215,6 @@ public class Main {
                 venda.addLivro(impressoPeloID);
                 venda.setValor(valorTotalVenda);
                 vendaDAO.cadastrarVenda(venda);
-
             }
         }
         venda.getLivros().forEach(System.out::println);

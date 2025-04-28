@@ -27,8 +27,6 @@ public class ImpressoDAO {
     }
 
     public Impresso getUmImpresso(int id) {
-//        em.getTransaction().begin();
-
         Impresso impresso = em.find(Impresso.class, id);
         em.getTransaction().commit();
         return impresso;
