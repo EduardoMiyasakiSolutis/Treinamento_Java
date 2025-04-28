@@ -2,19 +2,24 @@ package br.com.virtual.livraria.modelo;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy=InheritanceType.JOINED)
 @DiscriminatorColumn(name = "livrotype")
 public abstract class Livro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String titulo;
     private String autores;
     private String editora;
     private double preco;
+
+    @ManyToMany(mappedBy = "livros")
+    private List<Venda> vendas;
 
     public Livro(String titulo, String autores, String editora, double preco) {
         this.titulo = titulo;
@@ -32,6 +37,10 @@ public abstract class Livro {
                 ", editora='" + editora + '\'' +
                 ", preco=" + preco +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getTitulo() {

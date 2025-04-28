@@ -22,7 +22,10 @@ public class Eletronico extends Livro {
 
     @Override
     public String toString() {
-        return "Título: " + getTitulo() +
-                "tamanho: " + tamanho + "Kb";
+        return "Título: " + getTitulo() + "\n" +
+                "Autor: " + getAutores() + "\n" +
+                "Preço: R$" + getPreco() + "\n" +
+                "Tamanho em KB: " + getTamanho() + "\n";
+
     }
 }

@@ -19,11 +19,12 @@ public class Impresso extends Livro {
 
     @Override
     public String toString() {
-        return "Impresso: " +
-                "Título: " + getTitulo() +
-                "frete: " + frete +
-                ", estoque: " + estoque +
-                '}';
+        return "Título: " + getTitulo() + "\n" +
+                "Autor: " + getAutores() + "\n" +
+                "Editora: " + getEditora() + "\n" +
+                "Preço: R$" + getPreco() + "\n" +
+                "Frete: R$" + getFrete() + "\n" +
+                "Quantidade em estoque: " + getEstoque();
     }
 
     public double getFrete() {

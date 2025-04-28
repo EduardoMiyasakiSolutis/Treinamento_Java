@@ -18,7 +18,7 @@
             <!-- Conexão com o banco -->
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/livraria_virtual"/>
             <property name="hibernate.connection.user" value="root"/>
-            <property name="hibernate.connection.password" value="123456"/>
+            <property name="hibernate.connection.password" value="01082011Dudu@"/>
 
             <property name="hibernate.hbm2ddl.auto" value="update"/>
 
