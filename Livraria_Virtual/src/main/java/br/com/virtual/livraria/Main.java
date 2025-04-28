@@ -2,6 +2,7 @@ package br.com.virtual.livraria;
 
 import br.com.virtual.livraria.dao.EletronicoDAO;
 import br.com.virtual.livraria.dao.ImpressoDAO;
+import br.com.virtual.livraria.dao.LivroDAO;
 import br.com.virtual.livraria.dao.VendaDAO;
 import br.com.virtual.livraria.modelo.Eletronico;
 import br.com.virtual.livraria.modelo.Impresso;
@@ -18,6 +19,7 @@ public class Main {
     static EletronicoDAO eletronicoDAO = new EletronicoDAO();
     static ImpressoDAO impressoDAO = new ImpressoDAO();
     static VendaDAO vendaDAO = new VendaDAO();
+    static LivroDAO livroDAO = new LivroDAO();
 
     public static void main(String[] args) {
 
@@ -48,20 +50,26 @@ public class Main {
                     realizarVenda();
                     break;
                 }
+                case 3: {
+                    getTodosLivros();
+                    break;
+                }
+                case 4: {
+                    getTodasVendas();
+                    break;
+                }
                 case 5:
                     break;
             }
         }
         eletronicoDAO.fechar();
         impressoDAO.fechar();
+        livroDAO.fechar();
     }
 
     public static void cadastrarLivros() {
 
-        ImpressoDAO impressoDAO = new ImpressoDAO();
-        EletronicoDAO eletronicoDAO = new EletronicoDAO();
-
-        System.out.println("\n <---------- Bem-Vindo ao cadastr de livros ---------->");
+        System.out.println("\n <---------- Bem-Vindo ao cadastro de livros ---------->");
         System.out.println(" \n Informe o tipo de livro que será cadastrado: 1 para Impresso, 2 para Eletrônico ou 3 ambos ");
         int num = scNum.nextInt();
 
@@ -166,12 +174,20 @@ public class Main {
 
     public static void realizarVenda() {
 
+        double valorTotalVenda = 0.0;
+
         var venda = new Venda();
-        venda.setNumero((int) Math.round(Math.random()));
+        int max = 100;
+        int min = 1;
+        venda.setNumero((int) (Math.random() * (max - min) + min));
 
         System.out.println("Informe seu nome: ");
         String nomeCliente = sc.nextLine();
         venda.setCliente(nomeCliente);
+
+        int ultimoID = selecionarUltimaVenda();
+        System.out.println(ultimoID);
+        venda.setNumVendas(selecionarUltimaVenda() + 1);
 
         System.out.println("Informe a quantidade de livro que deseja comprar: ");
         int qtdLivros = sc.nextInt();
@@ -179,13 +195,13 @@ public class Main {
         for (int i = 1; i <= qtdLivros; i++) {
             System.out.println("Qual tipo do " + i + "° livro?");
             System.out.println("""
-                                    +--------------------------------------+
-                                    |--> Selecione uma opção: <--          |
-                                    +--------------------------------------+
-                                    | 1 - Eletrônico...                    |
-                                    | 2 - Impresso...                      |
-                                    +--------------------------------------+
-                                    |---> Digite uma opção:""");
+                    +--------------------------------------+
+                    |--> Selecione uma opção: <--          |
+                    +--------------------------------------+
+                    | 1 - Eletrônico...                    |
+                    | 2 - Impresso...                      |
+                    +--------------------------------------+
+                    |---> Digite uma opção:""");
 
             int opcao = scNum.nextInt();
 
@@ -193,13 +209,19 @@ public class Main {
                 var lista = listarLivrosEletronicos();
                 escolherOpcaoLivro(lista);
                 var livroId = scNum.nextInt();
-                venda.addLivro(getUmEletronico(livroId));
+                Eletronico livroPeloID = getUmEletronico(livroId);
+                venda.addLivro(livroPeloID);
+                valorTotalVenda += livroPeloID.getPreco();
+                venda.setValor(valorTotalVenda);
                 vendaDAO.cadastrarVenda(venda);
             } else {
-                var lista =  listarLivrosImpressos();
+                var lista = listarLivrosImpressos();
                 escolherOpcaoLivro(lista);
                 var livroId = scNum.nextInt();
-                venda.addLivro(getUmImpresso(livroId));
+                Impresso impressoPeloID = getUmImpresso(livroId);
+                valorTotalVenda += impressoPeloID.getPreco() + impressoPeloID.getFrete();
+                venda.addLivro(impressoPeloID);
+                venda.setValor(valorTotalVenda);
                 vendaDAO.cadastrarVenda(venda);
 
             }
@@ -226,16 +248,33 @@ public class Main {
         System.out.println("Número escolhida: ");
     }
 
-    public static Impresso getUmImpresso(int id){
+    public static Impresso getUmImpresso(int id) {
         Impresso livroImpresso = impressoDAO.getUmImpresso(id);
         System.out.println(livroImpresso);
         return livroImpresso;
     }
 
-    public static Eletronico getUmEletronico(int id){
+    public static Eletronico getUmEletronico(int id) {
         Eletronico livroEletronico = eletronicoDAO.getUmEletronico(id);
         return livroEletronico;
     }
+
+    public static int selecionarUltimaVenda() {
+        int numeroVenda = Integer.valueOf(String.valueOf(vendaDAO.selecionarUltimaVenda()));
+        return numeroVenda;
+    }
+
+    public static List<Livro> getTodosLivros() {
+        List<Livro> totalLivro = livroDAO.listarTodosLivros();
+        totalLivro.forEach(l ->
+                System.out.println("| Id: " + l.getId() + " <--> Título: " + l.getTitulo() + " <--> Preço: " + l.getPreco() + "|"));
+        return totalLivro;
+    }
+
+    public static List<Venda> getTodasVendas() {
+        List<Venda> totalVendas = vendaDAO.listarTodasVendas();
+        totalVendas.forEach(v ->
+                System.out.println("| Id: " + v.getId()+ " <--> Cliente: " + v.getCliente() + " <--> número da venda: " + v.getNumero() + " <--> Valor: " + v.getValor() + " |"));
+        return totalVendas;
+    }
 }
-
-

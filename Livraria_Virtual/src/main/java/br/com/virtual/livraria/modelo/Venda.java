@@ -26,6 +26,10 @@ public class Venda {
 
     private List<Livro> livros = new ArrayList<Livro>();
 
+    public int getId() {
+        return idVenda;
+    }
+
     public void addLivro(Livro livro){
             livros.add(livro);
     }
