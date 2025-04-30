@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Entity
 public class Locacao {
 
@@ -31,5 +32,11 @@ public class Locacao {
 
     private boolean devolvido;
 
+    public Locacao(Cliente cliente, Filme filme) {
+        setCliente(cliente);
+        setFilme(filme);
+        setDataLocacao(LocalDate.now());
+        setDevolvido(false);
 
+    }
 }
