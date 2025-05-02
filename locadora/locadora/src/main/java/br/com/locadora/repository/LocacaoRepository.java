@@ -5,14 +5,16 @@ import br.com.locadora.entity.Locacao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public interface LocacaoRepository extends JpaRepository<Locacao, Long> {
 
-    @Query("SELECT l FROM Locacao l JOIN l.filmes f WHERE f.idFilme = :id")
-    Locacao verificarFilmeAlugado(long id);
+    @Query("SELECT l FROM Locacao l JOIN l.filme f WHERE f.idFilme = :filmeId AND l.devolvido = false")
+    Optional<Locacao> verificarFilmeAlugado(@Param("filmeId") long id);
 
     @Transactional
     @Modifying

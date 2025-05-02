@@ -1,10 +1,7 @@
 package br.com.locadora.entity;
 
 import br.com.locadora.dto.CadastroFilmeDTO;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "filme")
 public class Filme {
 
     @Id
@@ -26,6 +24,8 @@ public class Filme {
     private String genero;
 
     private String diretor;
+
+
 
     public Filme(CadastroFilmeDTO filmeDTO) {
         this.titulo = filmeDTO.titulo();

@@ -24,8 +24,8 @@ public class Locacao {
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany
-    private List<Filme> filmes = new ArrayList<Filme>();
+    @ManyToOne
+    private Filme filme;
 
     private LocalDate dataLocacao;
 
@@ -33,11 +33,10 @@ public class Locacao {
 
     private boolean devolvido = false;
 
-
     public Locacao(Cliente cliente, Filme filme) {
         this.cliente = cliente;
-        this.filmes.add(filme);
-        this.dataDevolucao = LocalDate.now();
+        this.filme = filme;
+        this.dataLocacao = LocalDate.now();
     }
 
 }

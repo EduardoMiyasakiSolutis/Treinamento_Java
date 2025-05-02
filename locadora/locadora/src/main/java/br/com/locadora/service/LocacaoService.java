@@ -3,12 +3,14 @@ package br.com.locadora.service;
 
 import br.com.locadora.dto.CadastroLocacaoDTO;
 import br.com.locadora.dto.LocacaoDAO;
+import br.com.locadora.entity.Filme;
 import br.com.locadora.entity.Locacao;
 import br.com.locadora.repository.ClienteRepository;
 import br.com.locadora.repository.FilmeRepository;
 import br.com.locadora.repository.LocacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
@@ -27,13 +29,16 @@ public class LocacaoService {
     @Autowired
     private FilmeRepository filmeRepository;
 
+    @Autowired
+    private FilmeService filmeService;
+
     public void cadastrarLocacao(CadastroLocacaoDTO dto) {
         var cliente = clienteRepository.findByNome(dto.nomeCliente());
         var filme = filmeRepository.findByTitulo(dto.nomeFilme());
 
         var verificarFilme = locacaoRepository.verificarFilmeAlugado(filme.getIdFilme());
 
-        if (verificarFilme.isDevolvido() == false) {
+        if (verificarFilme.isPresent()) {
             throw new RuntimeException("Filme já está alugado!");
         }
 
@@ -45,6 +50,7 @@ public class LocacaoService {
         return locacaoRepository.findAll();
     }
 
+    @Transactional
     public LocacaoDAO devolverFilme(long id, LocalDate dataDevolucao) {
         Optional<Locacao> locacao = locacaoRepository.findById(id);
 
@@ -53,6 +59,6 @@ public class LocacaoService {
         }
 
         locacaoRepository.devolverFilme(id, dataDevolucao);
-        return new LocacaoDAO(locacao.get().getCliente().getNome(), locacao.get().getFilmes().get(0).getTitulo());
+        return new LocacaoDAO(locacao.get().getCliente().getNome(), locacao.get().getFilme().getTitulo());
     }
 }
