@@ -26,9 +26,6 @@ public class Cliente {
 
     private String email;
 
-    @OneToMany
-    List<Filme> listaFilme = new ArrayList<>();
-
     public Cliente(CadastroClienteDTO clienteDTO) {
         this.nome = clienteDTO.nome();
         this.email = clienteDTO.email();
