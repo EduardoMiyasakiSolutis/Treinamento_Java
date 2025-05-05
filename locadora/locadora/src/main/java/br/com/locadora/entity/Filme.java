@@ -25,8 +25,6 @@ public class Filme {
 
     private String diretor;
 
-
-
     public Filme(CadastroFilmeDTO filmeDTO) {
         this.titulo = filmeDTO.titulo();
         this.genero = filmeDTO.genero();
