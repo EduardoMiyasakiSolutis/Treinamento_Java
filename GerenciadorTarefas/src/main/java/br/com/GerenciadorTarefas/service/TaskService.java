@@ -41,11 +41,13 @@ public class TaskService {
     }
 
     public ListagemTaskDTO updateTask(long id, String descricao) {
+
         var taskEncontrada = taskRepository.findById(id);
 
         if (taskEncontrada.isEmpty()) {
             throw new RuntimeException("Tarefa não encontrada");
         }
+
         var task = taskEncontrada.get();
         task.setDescricao(descricao);
         taskRepository.save(task);

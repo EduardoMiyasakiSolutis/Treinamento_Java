@@ -1,5 +1,6 @@
 package br.com.GerenciadorTarefas.controller;
 
+import br.com.GerenciadorTarefas.dto.AtualizacaoTaskDTO;
 import br.com.GerenciadorTarefas.dto.CadastroTaskDTO;
 import br.com.GerenciadorTarefas.dto.ListagemTaskDTO;
 import br.com.GerenciadorTarefas.service.TaskService;
@@ -28,7 +29,7 @@ public class TaskController {
         try {
             return ResponseEntity.ok(taskService.getOneTask(id));
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -37,16 +38,16 @@ public class TaskController {
         try {
             return ResponseEntity.ok(taskService.getAllTasks());
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.noContent().build();
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ListagemTaskDTO> updateTask(@PathVariable long id, @RequestBody String descricao) {
+    public ResponseEntity<ListagemTaskDTO> updateTask(@PathVariable long id, @RequestBody @Valid AtualizacaoTaskDTO dto) {
         try {
-            return ResponseEntity.ok(taskService.updateTask(id, descricao));
+            return ResponseEntity.ok(taskService.updateTask(id, dto.descricao()));
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -56,7 +57,7 @@ public class TaskController {
             taskService.deleteTask(id);
             return ResponseEntity.noContent().build();
         } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.notFound().build();
         }
     }
 }
