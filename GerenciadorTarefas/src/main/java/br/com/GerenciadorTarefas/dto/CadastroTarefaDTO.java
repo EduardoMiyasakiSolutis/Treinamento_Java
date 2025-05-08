@@ -2,12 +2,8 @@ package br.com.GerenciadorTarefas.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record CadastroTaskDTO(
+public record CadastroTarefaDTO(
         @NotBlank
-        String titulo,
-
-        String status,
-
-        String descricao
+        String titulo
 ) {
 }

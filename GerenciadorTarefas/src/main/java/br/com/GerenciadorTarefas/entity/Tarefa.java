@@ -1,6 +1,6 @@
 package br.com.GerenciadorTarefas.entity;
 
-import br.com.GerenciadorTarefas.dto.CadastroTaskDTO;
+import br.com.GerenciadorTarefas.dto.CadastroTarefaDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Task {
+public class Tarefa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,14 +20,7 @@ public class Task {
 
     private String titulo;
 
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    private String descricao;
-
-    public Task(CadastroTaskDTO dto) {
+    public Tarefa(CadastroTarefaDTO dto) {
         this.titulo = dto.titulo();
-        this.status = Status.fromString(dto.status());
-        this.descricao = dto.descricao();
     }
 }
