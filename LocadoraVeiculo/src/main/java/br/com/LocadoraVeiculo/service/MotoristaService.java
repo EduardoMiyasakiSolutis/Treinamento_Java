@@ -13,14 +13,18 @@ public class MotoristaService {
     @Autowired
     private MotoristaRepository motoristaRepository;
 
-    public ListagemMotoristaDTO saveMotorista(CadastroMotoristaDTO motoristaDTO) {
+    public void saveMotorista(CadastroMotoristaDTO motoristaDTO) {
+
+        if (motoristaRepository.existsByEmail(motoristaDTO.email())) {
+            throw new RuntimeException("Email já existe");
+        }
+
         var motorista = new Motorista(motoristaDTO);
         motoristaRepository.save(motorista);
-        return toDTO(motorista);
     }
 
     public ListagemMotoristaDTO toDTO(Motorista motorista) {
-        var listagemMotorista = new ListagemMotoristaDTO(motorista.getNome(), motorista.getCpf(), motorista.getEmail(), motorista.getNumeroCNH());
+        var listagemMotorista = new ListagemMotoristaDTO(motorista.getNome(), motorista.getEmail(), motorista.getNumeroCNH());
         return listagemMotorista;
     }
 
