@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Carro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idCarro;
 
     private String placa;

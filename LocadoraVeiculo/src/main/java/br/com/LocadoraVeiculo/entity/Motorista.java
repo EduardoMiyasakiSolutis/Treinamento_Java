@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("PESSOA_MOTORISTA")
+//@DiscriminatorValue("PESSOA_MOTORISTA")
 @Entity
 public class Motorista extends Pessoa {
 

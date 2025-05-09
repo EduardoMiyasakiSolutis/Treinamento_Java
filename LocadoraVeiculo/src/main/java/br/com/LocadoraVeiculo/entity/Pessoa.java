@@ -14,13 +14,14 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "pessoaType")
-@Entity
+//@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name = "pessoaType")
+@MappedSuperclass
+//@Entity
 public class Pessoa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idPessoa;
 
     private String nome;

@@ -20,7 +20,7 @@ import java.util.UUID;
 public class ApoliceSeguro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idApolice;
 
     private BigDecimal valorFranquia;
