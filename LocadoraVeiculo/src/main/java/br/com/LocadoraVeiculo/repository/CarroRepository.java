@@ -11,6 +11,4 @@ public interface CarroRepository extends JpaRepository<Carro, UUID> {
 
     @Query("SELECT c, m FROM Carro c INNER JOIN c.modeloCarro m")
     List<Object[]> listarTodosCarros();
-
-
 }

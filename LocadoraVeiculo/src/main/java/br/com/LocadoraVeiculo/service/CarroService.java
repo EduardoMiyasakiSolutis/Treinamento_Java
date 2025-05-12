@@ -26,6 +26,10 @@ public class CarroService {
 //        return listToDTO(carros);
     }
 
+    public ListagemCarrosDTO listagemCarrosDisponiveis(){
+
+    }
+
     public List<ListagemCarrosDTO> listToDTO(List<Carro> carro) {
         var carros = new ArrayList<ListagemCarrosDTO>();
 
