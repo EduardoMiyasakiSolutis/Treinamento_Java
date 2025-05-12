@@ -25,5 +25,6 @@ public class ModeloCarro {
     @ManyToOne
     private Fabricante fabricante;
 
+    @Enumerated(EnumType.STRING)
     private Categoria categoria;
 }

@@ -19,8 +19,4 @@ public class Motorista extends Pessoa {
 
     private String numeroCNH;
 
-    public Motorista(CadastroMotoristaDTO motoristaDTO) {
-        super(motoristaDTO.nome(), motoristaDTO.dataNascimento(), motoristaDTO.cpf(), Sexo.fromString(motoristaDTO.sexo()), motoristaDTO.email());
-        this.numeroCNH = motoristaDTO.numeroCNH();
-    }
 }

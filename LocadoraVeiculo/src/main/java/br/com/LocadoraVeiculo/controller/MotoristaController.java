@@ -17,8 +17,8 @@ public class MotoristaController {
     @Autowired
     private MotoristaService motoristaService;
 
-    @PostMapping
-    public ResponseEntity<String> cadastrarMotorista(@RequestBody @Valid CadastroMotoristaDTO motoristDTO) {
+        @PostMapping
+        public ResponseEntity<String> cadastrarMotorista(@RequestBody @Valid CadastroMotoristaDTO motoristDTO) {
 
         try {
             motoristaService.saveMotorista(motoristDTO);

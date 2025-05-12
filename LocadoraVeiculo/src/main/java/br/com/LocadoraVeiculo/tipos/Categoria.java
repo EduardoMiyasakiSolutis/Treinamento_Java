@@ -6,7 +6,7 @@ public enum Categoria {
 
     HATCH_COMPLETO("hatch completo"),
 
-    HATCH_MEDIO("hatc medio"),
+    HATCH_MEDIO("hatch medio"),
 
     SEDAN_COMPACTO("sedan compacto"),
 

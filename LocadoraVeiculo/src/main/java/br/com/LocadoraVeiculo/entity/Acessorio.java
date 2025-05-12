@@ -1,5 +1,6 @@
 package br.com.LocadoraVeiculo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class Acessorio {
 
     private String descricao;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "acessorios")
     private List<Carro> carros;
 }
