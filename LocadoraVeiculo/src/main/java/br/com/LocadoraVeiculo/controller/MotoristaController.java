@@ -1,6 +1,7 @@
 package br.com.LocadoraVeiculo.controller;
 
 import br.com.LocadoraVeiculo.dto.CadastroMotoristaDTO;
+import br.com.LocadoraVeiculo.dto.ListagemMotoristaDTO;
 import br.com.LocadoraVeiculo.service.MotoristaService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +19,13 @@ public class MotoristaController {
     private MotoristaService motoristaService;
 
         @PostMapping
-        public ResponseEntity<String> cadastrarMotorista(@RequestBody @Valid CadastroMotoristaDTO motoristDTO) {
+        public ResponseEntity<ListagemMotoristaDTO> cadastrarMotorista(@RequestBody @Valid CadastroMotoristaDTO motoristDTO) {
 
         try {
-            motoristaService.saveMotorista(motoristDTO);
-            return ResponseEntity.status(201).body("Cadastro de motorista realizado!");
+           var listagemMotorista =  motoristaService.saveMotorista(motoristDTO);
+            return ResponseEntity.status(201).body(listagemMotorista);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(409).body(e.getMessage());
+            return ResponseEntity.status(409).build();
         }
     }
 }

@@ -1,13 +1,16 @@
 package br.com.LocadoraVeiculo.entity;
 
+import br.com.LocadoraVeiculo.tipos.Pagamento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -30,6 +33,11 @@ public class Aluguel {
 
     private BigDecimal valorTotal;
 
+    private boolean carrinho;
+
+    @Enumerated(EnumType.STRING)
+    private Pagamento pagamento;
+
     @ManyToOne
     private Motorista motorista;
 
@@ -38,4 +46,5 @@ public class Aluguel {
 
     @ManyToOne
     private Carro carro;
+
 }

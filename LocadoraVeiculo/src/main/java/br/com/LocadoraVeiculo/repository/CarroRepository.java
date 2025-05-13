@@ -11,7 +11,8 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.UUID;
 
-public interface CarroRepository extends JpaRepository<Carro, UUID> {
+public interface
+CarroRepository extends JpaRepository<Carro, UUID> {
 
     @Query("SELECT c, m FROM Carro c INNER JOIN c.modeloCarro m")
     List<Object[]> listarTodosCarros();
@@ -26,6 +27,7 @@ public interface CarroRepository extends JpaRepository<Carro, UUID> {
                 FROM Aluguel a
                 WHERE a.carro = c
                   AND (a.dataDevolucao IS NULL OR a.dataDevolucao > CURRENT_DATE)
+                  AND (a.carrinho = true)
             )
             """)
     List<ListagemCarroDisponivelDTO> listarCarrosDisponiveis();
@@ -36,6 +38,5 @@ public interface CarroRepository extends JpaRepository<Carro, UUID> {
     @Query("SELECT c FROM Carro c JOIN c.acessorios a WHERE a.idAcessorio = :idAcessorio")
     List<Carro> listarCarrosPorAcessorios(@Param("idAcessorio") UUID idAcessorio);
 
-
-
+    Carro findByPlaca(String placa);
 }

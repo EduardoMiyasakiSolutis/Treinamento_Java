@@ -1,6 +1,7 @@
 package br.com.LocadoraVeiculo.service;
 
 import br.com.LocadoraVeiculo.dto.CadastroMotoristaDTO;
+import br.com.LocadoraVeiculo.dto.ListagemMotoristaDTO;
 import br.com.LocadoraVeiculo.repository.MotoristaRepository;
 import br.com.LocadoraVeiculo.mapper.MotoristaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class MotoristaService {
     @Autowired
     private MotoristaMapper motoristaMapper;
 
-    public void saveMotorista(CadastroMotoristaDTO motoristaDTO) {
+    public ListagemMotoristaDTO saveMotorista(CadastroMotoristaDTO motoristaDTO) {
 
         if (motoristaRepository.existsByEmail(motoristaDTO.email())) {
             throw new RuntimeException("Email já existe");
@@ -23,6 +24,7 @@ public class MotoristaService {
 
         var motorista = motoristaMapper.toEntity(motoristaDTO);
         motoristaRepository.save(motorista);
+        return motoristaMapper.toListagemMotoristaDTO(motorista);
     }
 
 }
