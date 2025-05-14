@@ -19,16 +19,16 @@ CarroRepository extends JpaRepository<Carro, UUID> {
 
     @Query("""
             SELECT new br.com.LocadoraVeiculo.dto.ListagemCarroDisponivelDTO(c, m.descricao, f.nome)
-            FROM Carro c
-            LEFT JOIN c.modeloCarro m
-            LEFT JOIN m.fabricante f
-            WHERE NOT EXISTS (
-                SELECT a
-                FROM Aluguel a
-                WHERE a.carro = c
-                  AND (a.dataDevolucao IS NULL OR a.dataDevolucao > CURRENT_DATE)
-                  AND (a.carrinho = true)
-            )
+             FROM Carro c
+             LEFT JOIN c.modeloCarro m
+             LEFT JOIN m.fabricante f
+             WHERE NOT EXISTS (
+                 SELECT a
+                 FROM Aluguel a
+                 WHERE a.carro = c
+                   AND (a.dataDevolucao IS NULL OR a.dataDevolucao > CURRENT_DATE)
+                   AND (a.carrinho = true)
+             )
             """)
     List<ListagemCarroDisponivelDTO> listarCarrosDisponiveis();
 

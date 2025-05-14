@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 public interface AluguelMapper {
 
     @Mapping(source = "metodoPagamento", target = "pagamento")
+//    @Mapping(target = "", source = "placa", ignore = true)
     Aluguel toEntity(CadastroAluguelDTO dto);
 
     ListagemAluguelDTO toListagemAluguelDTO(Aluguel entity);

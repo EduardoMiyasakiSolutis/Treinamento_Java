@@ -12,7 +12,7 @@ public interface MotoristaMapper {
     @Mapping(source = "nome", target =  "nome")
     Motorista toEntity(CadastroMotoristaDTO dto);
 
-   @Mapping(source = "numeroCNH", target =  "numeroCNH")
+//   @Mapping(source = "numeroCNH", target =  "numeroCNH")
     ListagemMotoristaDTO toListagemMotoristaDTO(Motorista entity);
 
 }
